@@ -7,7 +7,6 @@ class Filter {
 
 
 isAbc() {
-  console.log(false);
   return false;
 }
 

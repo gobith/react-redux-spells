@@ -2370,7 +2370,6 @@ var Filter = function () {
   _createClass(Filter, [{
     key: "isAbc",
     value: function isAbc() {
-      console.log(false);
       return false;
     }
   }, {
@@ -24366,7 +24365,6 @@ var ABCFilter = function (_Filter) {
   _createClass(ABCFilter, [{
     key: "isAbc",
     value: function isAbc() {
-      console.log(true);
       return true;
     }
   }]);

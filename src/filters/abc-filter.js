@@ -7,7 +7,6 @@ class ABCFilter extends Filter {
   }
 
   isAbc() {
-    console.log(true);
     return true;
   }
 
