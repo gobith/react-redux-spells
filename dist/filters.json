@@ -1,0 +1,36 @@
+{
+  "name": {
+    "class" : "ABCFilter" ,
+    "name" : "Name",
+    "path" : ["name"]
+  },
+  "school": {
+    "class" : "ChoicesFilter" ,
+    "name" : "School",
+    "path" : ["school"],
+    "choices" : [
+      "Abjuration" ,
+      "Conjuration" ,
+      "Divination" ,
+      "Enchantment" ,
+      "Evocation" ,
+      "Illusion" ,
+      "Necromancy" ,
+      "Transmutation" ,
+      "Universal"]
+  },
+  "class": {
+    "class" : "ChoicesFilter" ,
+    "name" : "Class",
+    "path" : ["levels" , "name"],
+    "choices" : [
+      "Bard" ,
+      "Cleric" ,
+      "Druid" ,
+      "Paladin" ,
+      "Ranger" ,
+      "Sorcerer" ,
+      "Wizard"]
+  }
+
+}
