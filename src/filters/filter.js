@@ -20,7 +20,7 @@ filter(spells , value){
   if (value === "") {return spells};
 
   return spells.filter((spell) => {
-    return spell[this.id].toLowerCase().indexOf(value) >= 0;
+    return spell[this.id].toLowerCase().indexOf(value.toLowerCase()) >= 0;
   });
 }
 

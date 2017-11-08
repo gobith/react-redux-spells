@@ -23,20 +23,34 @@ class FilterList extends React.Component {
 
       renderAbcFilter(filter) {
         return <li key={filter.name}>
-                <p>{filter.name}
-                <input onChange={(evt) => this.props.changedFilter(filter , evt.target.value)}></input></p>
+                <p>{filter.name}</p>
+                <p><input onChange={(evt) => this.props.changedFilter(filter , evt.target.value)}></input></p>
                 </li>;
       }
 
       renderChoicesFilter(filter) {
-        return <li key={filter.name}>choices</li>;
+        return (
+          <li key={filter.name}>
+            <p>{filter.name}</p>
+            <div className="dropdown">
+              <button className="dropbtn">{this.props.filterValues[filter.id]}</button>
+              <div className="dropdown-content">
+              {Object.values(filter.choices).map((choice) => {
+                return (
+                  <a onClick={() => {this.props.changedFilter(filter , choice)}}>
+                  {choice}
+                  </a>)})}
+              </div>
+            </div>
+          </li>);
       }
 
 }
 
 const mapStateToProps = (state) => {
     return {
-        filters: state.filters
+        filters: state.filters ,
+        filterValues: state.filterValues
     };
 }
 

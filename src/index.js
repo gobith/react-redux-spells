@@ -6,6 +6,7 @@ import allReducers from './reducers/all-reducers';
 import axios from 'axios';
 import thunk from 'redux-thunk';
 import App from "./components/app";
+require("./css/style.css");
 
 const middleware = applyMiddleware(thunk);
 const store = createStore(allReducers, middleware);

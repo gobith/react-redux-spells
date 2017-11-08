@@ -6,7 +6,7 @@ export default function (state = {}, action) {
 
       case "RECEIVED_FILTERS":
         let filterValues = {};
-         Object.keys(action.payload).map( (keyName) => {filterValues[keyName] = ""});
+         Object.keys(action.payload).map( (keyName) => {filterValues[keyName] = action.payload[keyName].default});
         console.log(filterValues);
         return filterValues;
 }
