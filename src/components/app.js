@@ -5,9 +5,8 @@ import SpellDetail from "../containers/spell-detail";
 
 
 const App = () => (
-    <div>
+    <div className = "spell-container">
         <FilterList/>
-        <h2>Spell List:</h2>
         <SpellList/>
         <SpellDetail/>
     </div>

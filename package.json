@@ -23,6 +23,7 @@
     "@giantmachines/redux-websocket": "git+https://github.com/giantmachines/redux-websocket.git",
     "axios": "^0.16.2",
     "bootstrap": "^4.0.0-beta",
+    "html-react-parser": "^0.4.0",
     "jquery": "^3.2.1",
     "popper.js": "^1.12.5",
     "react": "^16.0.0",

@@ -8,9 +8,11 @@ class FilterList extends React.Component {
 
   render() {
         return (
-          <ul>
-          {this.renderFilters()}
-          </ul>);
+          <div className = "filter">
+            <ul>
+              {this.renderFilters()}
+            </ul>
+          </div>);
     }
 
     renderFilters() {

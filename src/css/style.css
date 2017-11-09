@@ -3,6 +3,46 @@ body {
   color: #878E9C;
 }
 
+.spell-container {
+  display: flex;
+}
+
+.filter {
+  margin: 5px;
+  flex: 1;
+  border-right-width: thin;
+  border-right-color: #3C4049;
+  border-right-style: solid;
+}
+
+.spells {
+  margin: 5px;
+  flex: 1;
+  border-right-width: thin;
+  border-right-color: #3C4049;
+  border-right-style: solid;
+  overflow-y: auto;
+  height: 800px;
+}
+
+.spell-detail {
+  margin: 5px;
+  flex: 4;
+}
+
+.spell-item-container {
+  display: flex;
+  padding: 5px;
+}
+
+.spell-item-name {
+  flex: 1;
+}
+
+.spell-item-contents {
+  flex: 6;
+}
+
 /* Dropdown Button */
 .dropbtn {
    background-color: #4CAF50;

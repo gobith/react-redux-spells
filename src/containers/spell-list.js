@@ -10,9 +10,11 @@ class SpellList extends React.Component {
 
   render() {
         return (
-          <ul>
-          {this.renderSpells()}
-          </ul>);
+          <div className = "spells">
+            <ul>
+              {this.renderSpells()}
+            </ul>
+          </div>);
     }
 
     renderSpells() {
