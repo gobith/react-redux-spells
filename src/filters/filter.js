@@ -46,24 +46,34 @@ this.filterWithProbe(spell , searchValue , probe , index);
 filterWithProbe(target , searchValue , probe , index) {
 
   let newTarget = target[this.path[index]];
+  let nextIndex = index + 1;
 
-  if (this.path.length === index + 1) {
-      if (newTarget.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0) {
+  if (this.path.length === nextIndex) {
+      if (this.checkContents(newTarget , searchValue)) {
         probe.passed = true};
         return this;
   }
 
   if (this.isArray(newTarget)) {
     newTarget.forEach( (item) => {
-      this.filterWithProbe(item , searchValue , probe , index + 1)
+      this.filterWithProbe(item , searchValue , probe , nextIndex)
     } )
   } else {
-    filterWithProbe(newTarget , searchValue , probe , index + 1)
+    filterWithProbe(newTarget , searchValue , probe , nextIndex)
   }
 
 
 }
 
+checkContents(newTarget , searchValue) {
+
+  if (!isNaN(newTarget)) {
+    return newTarget === Number(searchValue);
+  };
+
+  return newTarget.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0
+
+}
 
 }
 

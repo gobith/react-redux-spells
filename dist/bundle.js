@@ -2428,9 +2428,10 @@ var Filter = function () {
       var _this2 = this;
 
       var newTarget = target[this.path[index]];
+      var nextIndex = index + 1;
 
-      if (this.path.length === index + 1) {
-        if (newTarget.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0) {
+      if (this.path.length === nextIndex) {
+        if (this.checkContents(newTarget, searchValue)) {
           probe.passed = true;
         };
         return this;
@@ -2438,12 +2439,22 @@ var Filter = function () {
 
       if (this.isArray(newTarget)) {
         newTarget.forEach(function (item) {
-          _this2.filterWithProbe(item, searchValue, probe, index + 1);
+          _this2.filterWithProbe(item, searchValue, probe, nextIndex);
         });
       } else {
-        filterWithProbe(newTarget, searchValue, probe, index + 1);
+        filterWithProbe(newTarget, searchValue, probe, nextIndex);
       }
     })
+  }, {
+    key: "checkContents",
+    value: function checkContents(newTarget, searchValue) {
+
+      if (!isNaN(newTarget)) {
+        return newTarget === Number(searchValue);
+      };
+
+      return newTarget.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0;
+    }
   }]);
 
   return Filter;

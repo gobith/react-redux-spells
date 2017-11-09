@@ -5,6 +5,14 @@
     "path" : ["name"],
     "default": ""
   },
+
+  "level": {
+    "class" : "ABCFilter" ,
+    "name" : "Level",
+    "path" : ["levels" , "level"],
+    "default": ""
+  },
+
   "school": {
     "class" : "ChoicesFilter" ,
     "name" : "School",
@@ -56,6 +64,19 @@
       "Shadow" ,
       "Summoning" ,
       "Teleportation"],
+      "default": "All"
+  } ,
+  "components": {
+    "class" : "ChoicesFilter" ,
+    "name" : "Components",
+    "path" : ["components" , "name"],
+    "choices" : [
+      "All" ,
+      "V" ,
+      "S" ,
+      "M" ,
+      "F" ,
+      "DF"],
       "default": "All"
   }
 
