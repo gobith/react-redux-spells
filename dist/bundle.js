@@ -2378,18 +2378,72 @@ var Filter = function () {
       return false;
     }
   }, {
+    key: "defaultValue",
+    value: function defaultValue() {
+      return "";
+    }
+  }, {
+    key: "isArray",
+    value: function isArray(obj) {
+      return !!obj && obj.constructor === Array;
+    }
+  }, {
     key: "filter",
     value: function filter(spells, value) {
       var _this = this;
 
-      if (value === "") {
+      var defaultValue = this.defaultValue();
+      if (value === defaultValue) {
         return spells;
       };
 
       return spells.filter(function (spell) {
-        return spell[_this.id].toLowerCase().indexOf(value.toLowerCase()) >= 0;
+        return _this.filterSpell(spell, value);
       });
     }
+  }, {
+    key: "filterSpell",
+    value: function filterSpell(spell, searchValue) {
+
+      var probe = { passed: false };
+      var index = 0;
+
+      this.filterWithProbe(spell, searchValue, probe, index);
+
+      return probe.passed;
+    }
+  }, {
+    key: "filterWithProbe",
+    value: function (_filterWithProbe) {
+      function filterWithProbe(_x, _x2, _x3, _x4) {
+        return _filterWithProbe.apply(this, arguments);
+      }
+
+      filterWithProbe.toString = function () {
+        return _filterWithProbe.toString();
+      };
+
+      return filterWithProbe;
+    }(function (target, searchValue, probe, index) {
+      var _this2 = this;
+
+      var newTarget = target[this.path[index]];
+
+      if (this.path.length === index + 1) {
+        if (newTarget.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0) {
+          probe.passed = true;
+        };
+        return this;
+      }
+
+      if (this.isArray(newTarget)) {
+        newTarget.forEach(function (item) {
+          _this2.filterWithProbe(item, searchValue, probe, index + 1);
+        });
+      } else {
+        filterWithProbe(newTarget, searchValue, probe, index + 1);
+      }
+    })
   }]);
 
   return Filter;
@@ -24367,6 +24421,11 @@ var ABCFilter = function (_Filter) {
     value: function isAbc() {
       return true;
     }
+  }, {
+    key: "defaultValue",
+    value: function defaultValue() {
+      return "";
+    }
   }]);
 
   return ABCFilter;
@@ -24419,17 +24478,9 @@ var ChoicesFilter = function (_Filter) {
       return true;
     }
   }, {
-    key: "filter",
-    value: function filter(spells, value) {
-      var _this2 = this;
-
-      if (value === "All") {
-        return spells;
-      };
-
-      return spells.filter(function (spell) {
-        return spell[_this2.id].toLowerCase().indexOf(value.toLowerCase()) >= 0;
-      });
+    key: "defaultValue",
+    value: function defaultValue() {
+      return "All";
     }
   }]);
 
@@ -24548,7 +24599,7 @@ module.exports.default = axios;
 /*!
  * Determine if an object is a Buffer
  *
- * @author   Feross Aboukhadijeh <https://feross.org>
+ * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
  * @license  MIT
  */
 

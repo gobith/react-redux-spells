@@ -10,6 +10,9 @@ class ABCFilter extends Filter {
     return true;
   }
 
+  defaultValue() {
+    return "";
+  }
 
 }
 

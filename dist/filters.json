@@ -21,7 +21,7 @@
       "Transmutation" ,
       "Universal"],
       "default": "All"
-  },
+  } ,
   "class": {
     "class" : "ChoicesFilter" ,
     "name" : "Class",
@@ -35,6 +35,27 @@
       "Ranger" ,
       "Sorcerer" ,
       "Wizard"],
+      "default": "All"
+  } ,
+  "subSchools": {
+    "class" : "ChoicesFilter" ,
+    "name" : "Sub Schools",
+    "path" : ["subSchools" , "name"],
+    "choices" : [
+      "All",
+      "Calling" ,
+      "Charm" ,
+      "Compulsion" ,
+      "Creation" ,
+      "Figment" ,
+      "Glamer" ,
+      "Healing" ,
+      "Pattern" ,
+      "Phantasm" ,
+      "Scrying" ,
+      "Shadow" ,
+      "Summoning" ,
+      "Teleportation"],
       "default": "All"
   }
 
